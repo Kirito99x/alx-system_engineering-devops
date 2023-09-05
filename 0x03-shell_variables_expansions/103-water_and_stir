@@ -1,2 +1,16 @@
 #!/bin/bash
-printf "%o\n" $(( $((5#(echo $WATER | tr water 01234))) + $((5#(echo $STIR | tr stir. 01234))) )) | tr 01234567 bestchol
+# Get the numbers in base WATER and STIR
+water_base=$(echo $WATER | cut -d' ' -f1)
+water_number=$(echo $WATER | cut -d' ' -f2)
+stir_base=$(echo $STIR | cut -d' ' -f1)
+stir_number=$(echo $STIR | cut -d' ' -f2)
+# Convert the numbers to base 10
+water_number_base_10=$(bc -l<<<"scale=0; $water_number/$water_base")
+stir_number_base_10=$(bc -l<<<"scale=0; $stir_number/$stir_base")
+# Add the numbers in base 10
+sum_base_10=$(bc -l<<<"scale=0; $water_number_base_10 + $stir_number_base_10")
+# Convert the sum to base bestchol
+bestchol_base=$(bc -l<<<"scale=0; $sum_base_10 * $bestchol_base")
+bestchol_number=$(bc -l<<<"scale=0; $bestchol_base % 10")
+# Print the sum in base bestchol
+echo "$bestchol_base $bestchol_number"
