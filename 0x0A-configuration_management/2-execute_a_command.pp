@@ -2,4 +2,5 @@
 exec { 'pkill':
   path    => '/bin/'
   command => 'pkill killmenow',
-}
+  }
+
