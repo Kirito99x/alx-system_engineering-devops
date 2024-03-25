@@ -1,0 +1,8 @@
+# SSH Config File
+
+Host my first server
+    HostName 18.235.255.77
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PreferredAuthentications publickey
+    PasswordAuthentication no
