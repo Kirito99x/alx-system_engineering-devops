@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#start apache in docker
+service apache3 start
+
