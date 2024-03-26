@@ -6,8 +6,8 @@ usage() {
 }
 
 if [ "$#" -lt 4 ]; then
-  usage
-  exit 1
+	usage
+	exit 1
 fi
 
 path_to_file="$1"
@@ -15,7 +15,4 @@ ip="$2"
 username="$3"
 path_to_ssh_key="$4"
 
-scp -o StrictHostKeyChecking=no -i "$path_to_ssh_key" "$path_to_file" "$username"@"$ip":~/ || { echo "File transfer failed."; exit 1; }
-
-echo "File transferred successfully."
-
+scp -o StrictHostKeyChecking=no -i "$ssh_key_path" "$file_path" "${username}@${server_ip}":"$file_path"
