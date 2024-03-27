@@ -1,1 +1,6 @@
 #!/usr/bin/env bash
+# set a 404 page
+sudo sed -i '25i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/default
+
+sudo service nginx restart
+
