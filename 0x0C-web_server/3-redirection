@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
-# Script to configure Nginx redirection
+# configure Nginx redirection
 
-# Update Nginx configuration to include redirection rule
 sed -i 's@location / {.*@&\n    location /redirect_me {\n        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n    }@' /etc/nginx/sites-available/default
 
-# Restart Nginx to apply changes
 sudo service nginx restart
 
-# Verify redirection
 curl -sI localhost/redirect_me/
 
