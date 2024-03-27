@@ -15,4 +15,4 @@ ip="$2"
 username="$3"
 path_to_ssh_key="$4"
 
-scp -o StrictHostKeyChecking=no -i "$ssh_key_path" "$file_path" "${username}@${server_ip}":"$file_path"
+scp -o StrictHostKeyChecking=no -i "$path_to_shh_key" "$path_to_file" "${username}@${ip}":"$path_to_file"
