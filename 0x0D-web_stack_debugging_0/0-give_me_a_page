@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #start apache in docker
+echo "ServerName localhost" >> /etc/apache2.conf
 service apache3 start
